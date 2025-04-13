@@ -1,4 +1,6 @@
 const { REST, Routes } = require("discord.js");
+// Load environment variables
+require("dotenv").config();
 
 const commands = [
   {
@@ -8,7 +10,7 @@ const commands = [
 ];
 
 const rest = new REST({ version: "10" }).setToken(
-  "MTI4ODcyMzgxMDIxMTcyOTQ4Mg.G2szpp.hAb1zKBgZpxw46bS53lX_95B5bfdCV0ZJwJ74I"
+  process.env.DISCORD_BOT_TOKEN
 );
 
 (async () => {
