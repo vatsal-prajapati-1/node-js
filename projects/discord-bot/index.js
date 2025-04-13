@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Client, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({
@@ -19,6 +20,7 @@ client.on("messageCreate", (message) => {
   message.reply({
     content: "Hello from bot",
   });
+  s;
 });
 
 client.on("interactionCreate", (interaction) => {
@@ -26,6 +28,4 @@ client.on("interactionCreate", (interaction) => {
   interaction.reply("pong!!");
 });
 
-client.login(
-  "MTI4ODcyMzgxMDIxMTcyOTQ4Mg.G2szpp.hAb1zKBgZpxw46bS53lX_95B5bfdCV0ZJwJ74I"
-);
+client.login(process.env.DISCORD_BOT_TOKEN);
