@@ -1,6 +1,5 @@
 // const sessionIdToUserMap = new Map();
 const jwt = require("jsonwebtoken");
-const secret = "hello$123@$";
 
 const setUser = (user) => {
   // const setUser = (id, user) => {
@@ -15,7 +14,7 @@ const setUser = (user) => {
       email: user.email,
       role: user.role,
     },
-    secret
+    process.env.secret
   );
   // return jwt.sign(payLoad, secret);
 };
@@ -24,7 +23,7 @@ const setUser = (user) => {
 const getUser = (token) => {
   if (!token) return null;
   try {
-    return jwt.verify(token, secret);
+    return jwt.verify(token, process.env.secret);
   } catch (error) {
     return null;
   }
